@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "X Auto Follow Tool",
+    "version": "1.0",
+    "description": "Auto follow/unfollow/like tool for X",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "*://x.com/*",
+        "*://twitter.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "X Automation Tool"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://x.com/*",
+                "*://twitter.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}

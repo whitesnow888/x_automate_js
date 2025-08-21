@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X ツール</title>
+    <style>
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: #0f1419;
+            margin: 0;
+            padding: 16px;
+            width: 280px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #1d9bf0;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-follow {
+            background: #1d9bf0;
+            color: white;
+        }
+
+        .btn-follow:hover:not(:disabled) {
+            background: #1a8cd8;
+        }
+
+        .btn-unfollow {
+            background: #ffd400;
+            color: black;
+        }
+
+        .btn-unfollow:hover:not(:disabled) {
+            background: #e6bf00;
+        }
+
+        .btn-like {
+            background: #f91880;
+            color: white;
+        }
+
+        .btn-like:hover:not(:disabled) {
+            background: #e01675;
+        }
+
+        .settings {
+            margin-top: 12px;
+            padding: 12px;
+            background: #16181c;
+            border-radius: 12px;
+        }
+
+        .settings label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: #71767b;
+            font-weight: 500;
+        }
+
+        .settings input {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #333639;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #000;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            text-align: center;
+            display: none;
+        }
+
+        .status.success {
+            background: #00ba7c;
+            color: white;
+        }
+
+        .status.error {
+            background: #f4212e;
+            color: white;
+        }
+
+        .status.info {
+            background: #1d9bf0;
+            color: white;
+        }
+
+        footer {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #71767b;
+            text-align: center;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>⚡ X オートメーション</h2>
+
+    <button id="follow" class="btn btn-follow">
+        <span id="follow-text">🚀 ユーザーをフォロー</span>
+    </button>
+
+    <button id="unfollow" class="btn btn-unfollow">
+        <span id="unfollow-text">❌ フォロー解除</span>
+    </button>
+
+    <button id="like" class="btn btn-like">
+        <span id="like-text">❤️ 投稿にいいね</span>
+    </button>
+
+    <div class="settings">
+        <label>実行する最大アクション数:</label>
+        <input id="max" type="number" value="10" min="1" max="100">
+
+        <label>アクション間の遅延 (ms):</label>
+        <input id="delay" type="number" value="1000" min="100" max="5000" step="100">
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <footer>クリック → 即時アクション → 結果</footer>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
