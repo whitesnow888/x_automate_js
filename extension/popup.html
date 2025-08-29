@@ -118,12 +118,26 @@
             color: white;
         }
 
-        footer {
+        /* footer {
             margin-top: 12px;
             font-size: 11px;
             color: #71767b;
             text-align: center;
+        } */
+        footer {
+            margin-top: 12px;
+            font-size: 9px;
+            color: #71767b;
+            text-align: center;
         }
+
+        footer .small-label {
+            margin-top: 4px;
+            font-size: 9px;
+            color: #555;
+            font-style: italic;
+        }
+
 
         .loader {
             display: inline-block;
@@ -168,7 +182,12 @@
 
     <div id="status" class="status"></div>
 
-    <footer>クリック → 即時アクション → 結果</footer>
+    <!-- <footer>クリック → 即時アクション → 結果</footer>
+    <p>Developed by Vaibhav Raj</p> -->
+    <footer>
+        クリック → 即時アクション → 結果
+        <div class="small-label">開発者: Vaibhav Raj</div>
+    </footer>
 
     <script src="popup.js"></script>
 </body>
